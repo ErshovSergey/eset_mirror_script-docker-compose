@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  web:
+    container_name: "eset-nod32_nginx"
+    hostname: nginx
+#    image: nginx:latest
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+
+    ports:
+      - ${IP_PORT}:80/tcp
+    volumes:
+        - "/etc/timezone:/etc/timezone:ro"
+        - ${DATA_PATH}/nod32-base:/nod32-base:ro
+#        - ${DATA_PATH}/code:/code
+#        - ${DATA_PATH}/site.conf:/etc/nginx/conf.d/site.conf
+#        - ${DATA_PATH}/site.conf:/etc/nginx/conf.d/default.conf
+    links:
+        - php
+
+  php:
+    container_name: "eset-nod32_php7"
+    hostname: php7
+#    image: php:7-fpm
+#    image: php:7
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+
+    volumes:
+        - "/etc/timezone:/etc/timezone:ro"
+#        - ${DATA_PATH}/nod32ms.conf:/eset_mirror_script/nod32ms.conf
+        - ${DATA_PATH}/nod32-base:/nod32-base
