@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  web:
+  nginx:
     container_name: "eset-nod32_nginx"
     hostname: nginx
 #    image: nginx:latest

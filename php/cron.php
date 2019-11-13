@@ -6,4 +6,5 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 14 */6 * * * /usr/local/bin/php /eset_mirror_script/update.php
 @reboot /usr/local/bin/php /eset_mirror_script/update.php
+@reboot [ ! -f /nod32-base/favicon.ico  ] && cp /favicon.ico /nod32-base/favicon.ico
 

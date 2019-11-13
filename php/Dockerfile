@@ -8,7 +8,7 @@ RUN  \
 RUN cd / && git clone https://github.com/Kingston-kms/eset_mirror_script.git
 COPY nod32ms.conf /eset_mirror_script/nod32ms.conf
 COPY cron.php /var/spool/cron/crontabs/root
-
+COPY favicon.ico /favicon.ico
 ENTRYPOINT cron -f
 
 #разработка
