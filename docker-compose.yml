@@ -2,6 +2,7 @@ version: '2'
 
 services:
   nginx:
+    restart: always
     container_name: "eset-nod32_nginx"
     hostname: nginx
 #    image: nginx:latest
@@ -21,6 +22,7 @@ services:
         - php
 
   php:
+    restart: always
     container_name: "eset-nod32_php7"
     hostname: php7
 #    image: php:7-fpm
