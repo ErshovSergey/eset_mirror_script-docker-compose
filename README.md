@@ -9,12 +9,11 @@ https://github.com/Kingston-kms/eset_mirror_script
 - nginx (https://github.com/nginxinc/docker-nginx)
 - php https://github.com/docker-library/docs/tree/master/php
 
-## Команды
-Ручной запуск скрипта обновления из контейнера **php**  
+## Клонируйте проект
 ```
-php /eset_mirror_script/update.php
+git clone https://github.com/ErshovSergey/eset_mirror_script-docker-compose.git
+cd eset_mirror_script-docker-compose
 ```
-
 ## Настройки - делать до создания контейнера
 ### Скопировать настройки контейнеров
 ```
@@ -28,20 +27,18 @@ cp nginx/htpasswd-default nginx/htpasswd
 ```
 Добавить пароли, если необходимо.
 По умолчанию есть учетная запись admin/admin
-
-### Настроки скрипта обновления  
+### Настроки скрипта обновления (после изменения необходимо пересобрать проект)  
 Файл настроек скрипта обновления находится в *php/nod32ms.conf*.  
 Подробнее в https://github.com/Kingston-kms/eset_mirror_script  
-
 ### Настроки запуска скрипта обновления  
 Файл cron для запуска скрипта обновления находится в *php/cron.php*.  
 
-## Запуск, остановка, удаление  
-### Запуск проекта  
+## Команды
+### Ручной запуск скрипта обновления из контейнера **php**  
 ```
-git clone https://github.com/ErshovSergey/eset_mirror_script-docker-compose.git
-cd eset_mirror_script-docker-compose
+php /eset_mirror_script/update.php
 ```
+### Запуск, остановка/удаление  
 Произвести/изменить необходимые настройки и собрать проект
 ```
 docker-compose up --build -d --remove-orphans --force-recreate
@@ -50,3 +47,9 @@ docker-compose up --build -d --remove-orphans --force-recreate
 ```
 docker-compose down --remove-orphans
 ```
+#### Обновить используемые образы
+```
+docker pull nginx:latest
+docker pull php:7.2-cli
+```
+После обновления пересобрать образы
