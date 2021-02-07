@@ -27,4 +27,6 @@ services:
 
     volumes:
         - "/etc/timezone:/etc/timezone:ro"
+        - "/etc/localtime:/etc/localtime:ro"
+        - ./php/resolv.conf:/etc/resolv.conf
         - ${DATA_PATH}/nod32-base:/eset_mirror_script/www
