@@ -1,7 +1,7 @@
 FROM php:7.2-cli
 
 RUN  \
-    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends $buildDeps $runtimeDeps cron git \
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -qy --no-install-recommends $buildDeps $runtimeDeps cron git \
     && rm -r /var/lib/apt/lists/*
 
 
