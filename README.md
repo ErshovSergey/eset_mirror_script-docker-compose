@@ -44,11 +44,12 @@ docker exec -i -t <php_container_name> php /eset_mirror_script/update.php
 docker  logs -f <nginx_container_name>
 ```
 ### Запуск, остановка/удаление  
-Произвести/изменить необходимые настройки и собрать проект
+Произвести/изменить необходимые настройки и 
+###   пересобрать проект
 ```
 docker-compose up --build -d --remove-orphans --force-recreate
 ```
-### Удаление проекта
+#### Удаление проекта
 ```
 docker-compose down --remove-orphans
 ```
