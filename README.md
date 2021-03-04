@@ -39,6 +39,10 @@ cp nginx/htpasswd-default nginx/htpasswd
 ```
 docker exec -i -t <php_container_name> php /eset_mirror_script/update.php
 ```
+### Логи раздачи файлов 
+```
+docker  logs -f <nginx_container_name>
+```
 ### Запуск, остановка/удаление  
 Произвести/изменить необходимые настройки и собрать проект
 ```
