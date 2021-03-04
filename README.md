@@ -1,7 +1,7 @@
 # eset_mirror_script-docker-compose  
 ESET NOD32 UPDATE SCRIPT in docker-compose (nginx+php)  
 
-## Проект для зеркала антивирусных баз для ESET-NOD32
+## Проект контейнера для зеркала антивирусных баз для ESET-NOD32
 Базы подготавливаются с помощью скрипта из репозитория  
 https://github.com/Kingston-kms/eset_mirror_script
 
@@ -25,7 +25,7 @@ cp .env-default .env
 ```
 cp nginx/htpasswd-default nginx/htpasswd
 ```
-Добавить пароли, если необходимо.
+Добавить пароли в файл *nginx/htpasswd*, если необходимо.
 По умолчанию есть учетная запись admin/admin
 ### Настроки скрипта обновления (после изменения необходимо пересобрать проект)  
 Файл настроек скрипта обновления находится в *php/nod32ms.conf*.  
@@ -37,7 +37,7 @@ cp nginx/htpasswd-default nginx/htpasswd
 ## Команды
 ### Ручной запуск скрипта обновления из контейнера **php**  
 ```
-php /eset_mirror_script/update.php
+docker exec -i -t <php_container_name> php /eset_mirror_script/update.php
 ```
 ### Запуск, остановка/удаление  
 Произвести/изменить необходимые настройки и собрать проект
